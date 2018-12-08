@@ -1,32 +1,173 @@
-.App {
-  text-align: center;
+#root {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	width: 1180px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.checked-item{
+	text-decoration: line-through;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.unchecked-item{
+	text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+/* .content-wrapper{
+	
+} */
+
+
+.main-header{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 40px auto;
+	width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.di-to{
+	width: 101px;
+	height: 33px;
+	margin-right: 10px;
+}
+
+.di-logo-line{
+	background-color: #000;
+	height: 5px;
+	width: 70%;
+}
+
+.di-do{
+	width: 46px;
+	height: 31px;
+	margin-left: 10px;
+}
+
+#cards-area{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.main-card{
+	display: flex;
+	flex-direction: column;
+	width: 580px;
+	height: 320px;
+	background-color: #fff;
+	border-radius: 6px;
+	margin: 5px;
+}
+
+.card-header{
+	display: flex;
+	flex-direction: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.card-title{
+	margin-top: 10px;
+	margin-left: 15px;
+	font: bold 24px Helvetica Neue, sans-serif;
+	border: none;
+}
+
+.card-title:focus {
+	outline: none;
+	border-bottom: 2px solid black;
+}
+
+.delete-card-button{
+	margin-right: 10px;
+    border: none;
+    background: url("images/delete.svg");
+    width: 14px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.delete-card-button:focus{
+	outline: none;
+}
+
+.card-items-list{
+	display: flex;
+	flex-direction: column;
+
+}
+
+.card-item{
+	display: flex;
+	flex-direction: row nowrap;
+	align-items: flex-start;
+	margin-top: 10px;
+	margin-left: 15px;
+}
+
+.checkbox-container{
+	flex-shrink: 0;
+	cursor: pointer;
+}
+
+.checkbox-container input{
+	display: none;
+}
+
+input[type=checkbox]:checked + span.item-checkbox{
+	background: url("images/checked.png");
+	background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border: 2px solid #000;
+}
+
+.checkbox-container .item-checkbox{
+	display: inline-block;
+	width: 17px;
+	height: 17px;
+	border-radius: 5px;
+	border: 2px solid #9f9f9f;
+}
+
+.item-text{
+	margin-left: 8px;
+	font: 20px Helvetica Neue, sans-serif;
+	color: #000000;
+	opacity: 0.5;
+}
+
+.card-item-input{
+	display: flex;
+	align-items: flex-end;
+	width: 500px;
+	margin-top: auto;
+	margin-left: 15px;
+	margin-bottom: 10px;
+	font: 20px Helvetica Neue, sans-serif;
+	color: #000000;
+	opacity: 0.5;
+	border: none;
+}
+
+.footer-add-icon{
+	position: fixed;
+	right: 50px;
+	bottom: 50px;
+}
+
+.footer-add-icon button{
+	border: none;
+	background: none;
+	cursor: pointer;
+}
+
+.footer-add-icon button:focus{
+	outline: none;
+}
+
+#add-card-icon{
+	height: 60px;	
+	width: 60px;
 }
