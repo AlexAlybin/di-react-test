@@ -4,10 +4,7 @@ import ListItem from './ListItem';
 class CardItemList extends Component {
     render() {
         return <div className = 'card-items-list'>
-            <ListItem/>
-            <ListItem/>
-            <ListItem/>
-            <ListItem/>            
+            {this.props.itemsList.map((item) => <ListItem key={item.id} itemData={item}/>)}         
         </div>
     }
 }

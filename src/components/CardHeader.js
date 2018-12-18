@@ -5,8 +5,8 @@ import DeleteCardBtn from './DeleteCardBtn';
 class CardHeader extends Component {
     render() {
         return <div className = 'card-header'>
-            <CardTitle/>
-            <DeleteCardBtn/>
+            <CardTitle cardTitle={this.props.cardTitle}/>
+            <DeleteCardBtn onCardDelete={this.props.onCardDelete}/>
         </div>
     }
 }

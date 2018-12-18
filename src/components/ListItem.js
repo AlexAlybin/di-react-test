@@ -7,7 +7,7 @@ class ListItem extends Component {
                     <input type = "checkbox"/>
                     <span className = "item-checkbox"></span>
                 </label>
-                    <label className = "item-text">Choosing The Best Audio Player Software For Your Computer today</label>
+                    <label className = "item-text">{this.props.itemData.text}</label>
                 </div>
     }
 }
