@@ -22,7 +22,13 @@ class App extends Component {
         {
           id: Date.now(),
           title: "New card",
-          cardItems: []
+          cardItems: [
+            {
+              id: 1,
+              body: "Text",
+              isChecked: false
+            }
+          ]
         }
       ]
     });
@@ -31,6 +37,15 @@ class App extends Component {
   deleteCard = id => {
     this.setState({
       cards: this.state.cards.filter(card => card.id !== id)
+    });
+  };
+
+  addCardItem = ({ cardId, body, isChecked }) => {
+    const newState = [...this.state.cards];
+    const index = null;
+
+    this.setState({
+      cards: newState
     });
   };
 
