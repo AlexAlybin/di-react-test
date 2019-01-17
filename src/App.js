@@ -1,93 +1,114 @@
-import React, { Component } from 'react';
-import './App.css';
-import Header from './components/Header.js';
-import CardsArea from './components/CardsArea.js';
-import AddCardBtn from './components/AddCardBtn.js';
+import React, { Component } from "react";
+import "./App.css";
+import Header from "./components/Header.js";
+import CardsArea from "./components/CardsArea.js";
+import AddCardBtn from "./components/AddCardBtn.js";
 
 class App extends Component {
+  //   constructor (props) {
+  //     super(props)
+  //     this.state = {
+  //         cards: [
+  //             {
+  //               id: 1,
+  //               title: 'First title',
+  //               itemsList: [
+  //                   {
+  //                     id: 1,
+  //                     isChecked: true,
+  //                     text: 'Hello world'
+  //                   },
+  //                   {
+  //                     id: 2,
+  //                     isChecked: false,
+  //                     text: 'New text here'
+  //                   },
+  //                   {
+  //                     id: 3,
+  //                     isChecked: true,
+  //                     text: 'Hello world Test line text here'
+  //                   }
+  //               ]
+  //             },
+  //             {
+  //               id: 2,
+  //               title: 'Second title',
+  //               itemsList: [
+  //                   {
+  //                     id: 4,
+  //                     isChecked: true,
+  //                     text: 'Hello world'
+  //                   }
+  //               ]
+  //             }
+  //         ]
+  //     }
+  // }
 
-  constructor (props) {
-    super(props)
-    this.state = {
-        cards: [
-            // {
-            //   id: 1,
-            //   title: 'First title',
-            //   itemsList: [
-            //       {
-            //         id: 1,
-            //         isChecked: true,
-            //         text: 'Hello world'
-            //       },
-            //       {
-            //         id: 2,
-            //         isChecked: false,
-            //         text: 'New text here'
-            //       },
-            //       {
-            //         id: 3,
-            //         isChecked: true,
-            //         text: 'Hello world Test line text here'
-            //       }
-            //   ]
-            // },
-            // {
-            //   id: 2,
-            //   title: 'Second title',
-            //   itemsList: [
-            //       {
-            //         id: 4,
-            //         isChecked: true,
-            //         text: 'Hello world'
-            //       }
-            //   ]
-            // }
-        ]
-    }
-}
+  // addCard = () => {
+  //   this.setState({cards: [...this.state.cards, {
+  //     id: Date.now(),
+  //     title: 'New title',
+  //     itemsList: []
+  //   }]})
+  // };
 
+  // deleteCard = (id) => (event) => {
 
-addCard = () => {
-  this.setState({cards: [...this.state.cards, {
-    id: Date.now(),
-    title: 'New title',
-    itemsList: []
-  }]})
-};
+  //   console.log(event.target)
 
-deleteCard = (id) => (event) => {
+  //   const copyState = this.state.cards.slice();
 
-  console.log(event.target)
+  //   this.setState({cards: [...copyState.filter(card => card.id !== id)]})
 
-  const copyState = this.state.cards.slice();
+  // }
 
-  this.setState({cards: [...copyState.filter(card => card.id !== id)]})
+  // addListItem = (id, itemText) => {
+  //   const copyCards = [...this.state.cards];
 
-}
+  //   const index = copyCards.findIndex(card => card.id === id);
 
-addListItem = (id, itemText) => {
-  const copyCards = [...this.state.cards];
+  //   if(index !== -1) {
+  //     copyCards[index].itemsList.push({
+  //       id: Date.now(),
+  //       isChecked: false,
+  //       text: itemText
+  //     })
 
-  const index = copyCards.findIndex(card => card.id === id);
+  //     this.setState({ cards: [...copyCards] })
+  //   }
 
-  if(index !== -1) {
-    copyCards[index].itemsList.push({
-      id: Date.now(),
-      isChecked: false,
-      text: itemText
-    })
+  // }
 
-    this.setState({ cards: [...copyCards] })
-  }
+  state = {
+    cards: [
+      // {
+      //   id: 1,
+      //   title: "New card",
+      //   cardItems: []
+      // }
+    ]
+  };
 
-}
+  addCard = () => {
+    this.setState({
+      cards: [
+        ...this.state.cards,
+        {
+          id: Date.now(),
+          title: "New card",
+          cardItems: []
+        }
+      ]
+    });
+  };
 
-render() {
+  render() {
     return (
       <div className="App">
-        <Header/>
-        <CardsArea onKeyPress={this.addListItem} cardsData={this.state.cards} onCardDelete={this.deleteCard}/>   
-        <AddCardBtn onClick={this.addCard}/> 
+        <Header />
+        <CardsArea cardData={this.state.cards} />
+        <AddCardBtn onClick={this.addCard} />
       </div>
     );
   }

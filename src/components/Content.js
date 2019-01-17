@@ -1,12 +1,5 @@
-import React, {Component} from 'react';
+import React from "react";
 
-
-class Content extends Component{
-    render(){
-        return <div className = 'content-wrapper'>
-                  
-        </div>
-    }
-}
+const Content = () => <div className="content-wrapper" />;
 
 export default Content;
