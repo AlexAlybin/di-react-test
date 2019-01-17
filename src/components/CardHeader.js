@@ -5,7 +5,7 @@ import DeleteCardBtn from "./DeleteCardBtn";
 const CardHeader = props => (
   <div className="card-header">
     <CardTitle />
-    <DeleteCardBtn />
+    <DeleteCardBtn cardId={props.cardId} cardDelete={props.cardDelete} />
   </div>
 );
 
