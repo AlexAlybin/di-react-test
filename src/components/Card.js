@@ -11,7 +11,7 @@ const Card = props => (
       cardTitle={props.title}
     />
     <CardItemList cardItems={props.cardItems} />
-    <AddItemInput />
+    <AddItemInput cardId={props.id} addItem={props.addItem} />
   </div>
 );
 

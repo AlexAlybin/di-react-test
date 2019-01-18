@@ -23,11 +23,11 @@ class App extends Component {
           id: Date.now(),
           title: "New card",
           cardItems: [
-            {
-              id: 1,
-              body: "Text",
-              isChecked: false
-            }
+            // {
+            //   id: 1,
+            //   body: "Text",
+            //   isChecked: false
+            // }
           ]
         }
       ]
@@ -40,12 +40,20 @@ class App extends Component {
     });
   };
 
-  addCardItem = ({ cardId, body, isChecked }) => {
-    const newState = [...this.state.cards];
-    const index = null;
-
+  addCardItemByCardId = (cardId, value) => {
+    console.log(cardId, value);
+    const newState = this.state;
     this.setState({
-      cards: newState
+      cards: newState.cards.map(card => {
+        if (card.id === cardId) {
+          card.cardItems.push({
+            id: Date.now(),
+            body: value,
+            isChecked: false
+          });
+        }
+        return card;
+      })
     });
   };
 
@@ -53,7 +61,11 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <CardsArea cardDelete={this.deleteCard} cardData={this.state.cards} />
+        <CardsArea
+          addItem={this.addCardItemByCardId}
+          cardDelete={this.deleteCard}
+          cardData={this.state.cards}
+        />
         <AddCardBtn onClick={this.addCard} />
       </div>
     );
